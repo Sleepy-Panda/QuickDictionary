@@ -7,8 +7,6 @@ BEGIN
 		Id INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
 		SourcePhraseId INT NOT NULL,
 		Value NVARCHAR(200) NOT NULL,
-		CreatedAt DATETIME NOT NULL,
-		UpdatedAt DATETIME NULL,
 	)
 
 	-- SourcePhraseId references table dbo.SourcePhrases.

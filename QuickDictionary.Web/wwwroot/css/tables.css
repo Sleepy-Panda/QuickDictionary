@@ -1,0 +1,87 @@
+﻿.custom-table-wrapper {
+    background: #fff;
+    border-radius: 5px;
+}
+
+.custom-table {
+    width: 100%;
+    overflow: hidden;
+}
+
+.custom-table th {
+    padding: 10px;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.custom-table td {
+    padding: 8px;
+    word-break: break-all;
+    vertical-align: top;
+}
+
+.custom-table tr:nth-of-type(odd) td {
+    background-color: #f9f9f9;
+}
+
+.custom-table tr:nth-of-type(even) td {
+    background-color: #fff;
+}
+
+.custom-table .checkbox-cell {
+    width: 30px;
+}
+
+table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > td.sorting_asc,
+table.dataTable thead > tr > td.sorting_desc,
+table.dataTable thead > tr > td.sorting {
+  padding-right: 30px;
+}
+
+table.dataTable thead > tr > th:active,
+table.dataTable thead > tr > td:active {
+  outline: none;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+  cursor: pointer;
+  position: relative;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: block;
+  font-family: 'Glyphicons Halflings';
+  opacity: 0.5;
+}
+
+table.dataTable thead .sorting:after {
+  opacity: 0.2;
+  content: "\e150";
+}
+
+table.dataTable thead .sorting_asc:after {
+  content: "\e155";
+}
+
+table.dataTable thead .sorting_desc:after {
+  content: "\e156";
+}
+
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  color: #eee;
+}

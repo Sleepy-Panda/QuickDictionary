@@ -16,7 +16,10 @@ namespace QuickDictionary.CQRS.Queries.Languages
         public Language Execute(ISession session)
         {
             return session
-                .Query<Language>("SELECT * FROM Languages WHERE Id = @Id", new { Id = _id })
+                .Query<Language>(
+                    "SELECT * " +
+                    "FROM Languages " +
+                    "WHERE Id = @Id", new { Id = _id })
                 .FirstOrDefault();
         }
     }

@@ -1,0 +1,81 @@
+﻿@using QuickDictionary.Web.Models
+@model List<TranslationViewModel>
+
+@{
+    ViewData["Title"] = "Translations";
+}
+
+<div class="col-md-12">
+    <div class="blue-wrapper">
+        <div class="header-wrapper">
+            <h1>
+                Translations
+            </h1>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" id="search" />
+        </div>
+        <div class="custom-table-wrapper">
+            <table class="custom-table" id="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Value</th>
+                        <th>Translations</th>
+                        <th>Created at</th>
+                        <th>Updated at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="dictionaries" value="@item.Id">
+                            </td>
+                            <td>
+                                <a href="/Translation/Index/@item.Id">@item.Value</a>
+                            </td>
+                            <td>
+                                @foreach (var translation in item.TranslatedValues)
+                                { 
+                                    <p>
+                                        @translation
+                                    </p>
+                                }
+                            </td>
+                            <td>
+                                @item.CreatedAt
+                            </td>
+                            <td>
+                                @item.UpdatedAt
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var table = $('#table').DataTable({
+            'paging': false,
+            'order': [],
+            // Show only table and information.
+            'dom': 'ti',
+            'columnDefs': [
+                // Checkbox column.
+                { 'orderable': false, 'targets': 0 }
+            ],
+        });
+
+        $('#search').on('keyup', function () {
+            table
+                .search($(this).val())
+                .draw();
+        });
+    </script>
+}

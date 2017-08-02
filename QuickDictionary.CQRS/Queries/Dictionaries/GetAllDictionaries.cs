@@ -10,7 +10,10 @@ namespace QuickDictionary.CQRS.Queries.Dictionaries
         public IList<Dictionary> Execute(ISession session)
         {
             return session
-                .Query<Dictionary>("SELECT * FROM Dictionaries")
+                .Query<Dictionary>(
+                    "SELECT * " +
+                    "FROM Dictionaries " +
+                    "ORDER BY UpdatedAt DESC")
                 .ToList();
         }
     }

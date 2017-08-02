@@ -9,7 +9,7 @@ namespace QuickDictionary.Web.Controllers
     public class DictionaryController : Controller
     {
         private DictionaryService _dictionaryService;
-        LanguageService _languageService;
+        private LanguageService _languageService;
 
         public DictionaryController(
             DictionaryService dictionaryService,
@@ -28,8 +28,11 @@ namespace QuickDictionary.Web.Controllers
                     Name = d.Name,
                     Description = d.Description,
                     CreatedAt = d.CreatedAt,
-                    SourceLanguage = _languageService.GetLanguageById(d.SourceLanguageId)?.Name ?? String.Empty,
-                    TargetLanguage = _languageService.GetLanguageById(d.TargetLanguageId)?.Name ?? String.Empty,
+                    UpdatedAt = d.UpdatedAt,
+                    SourceLanguage = _languageService
+                        .GetLanguageById(d.SourceLanguageId)?.Name ?? String.Empty,
+                    TargetLanguage = _languageService
+                        .GetLanguageById(d.TargetLanguageId)?.Name ?? String.Empty,
                 })
                 .ToList();
             return View(list);

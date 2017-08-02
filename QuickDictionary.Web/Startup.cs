@@ -37,6 +37,7 @@ namespace QuickDictionary.Web
             services.AddTransient<IDatabase, Database>();
             services.AddTransient<DictionaryService>();
             services.AddTransient<LanguageService>();
+            services.AddTransient<TranslationService>();
 
             // Add framework services.
             services.AddMvc();
@@ -64,7 +65,7 @@ namespace QuickDictionary.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Dictionary}/{action=Index}/{id?}");
             });
         }
     }

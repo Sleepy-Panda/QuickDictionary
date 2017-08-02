@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using QuickDictionary.Contracts.CQRS;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace QuickDictionary.CQRS
 {
