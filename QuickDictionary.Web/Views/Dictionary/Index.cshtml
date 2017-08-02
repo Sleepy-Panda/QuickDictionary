@@ -1,0 +1,11 @@
+﻿@using QuickDictionary.Web.Models
+@model List<DictionaryViewModel>
+
+@{
+    ViewData["Title"] = "";
+}
+
+@foreach (var item in Model)
+{
+    <div>@item.Name</div>
+}

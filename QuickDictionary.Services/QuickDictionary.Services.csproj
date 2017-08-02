@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuickDictionary.Common\QuickDictionary.Common.csproj" />
+    <ProjectReference Include="..\QuickDictionary.Contracts\QuickDictionary.Contracts.csproj" />
+    <ProjectReference Include="..\QuickDictionary.CQRS\QuickDictionary.CQRS.csproj" />
+  </ItemGroup>
+
+</Project>
