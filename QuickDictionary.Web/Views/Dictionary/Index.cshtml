@@ -5,7 +5,54 @@
     ViewData["Title"] = "";
 }
 
-@foreach (var item in Model)
-{
-    <div>@item.Name</div>
-}
+<div class="col-md-12">
+    <div class="blue-wrapper">
+        <div class="header-wrapper">
+            <h1>
+                Мои словари
+            </h1>
+        </div>
+
+        <div class="custom-table-wrapper">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Название</th>
+                        <th>Описание</th>
+                        <th>Перевод с</th>
+                        <th>Перевод на</th>
+                        <th>Создан</th>
+                        <th>Обновлён</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="dictionaries" value="@item.Id">
+                            </td>
+                            <td>
+                                <a href="/Translation/Index/@item.Id">@item.Name</a>
+                            </td>
+                            <td>
+                                @item.Description
+                            </td>
+                            <td>
+                                @item.SourceLanguage
+                            </td>
+                            <td>
+                                @item.TargetLanguage
+                            </td>
+                            <td>
+                                @item.CreatedAt
+                            </td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

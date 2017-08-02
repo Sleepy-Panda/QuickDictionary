@@ -36,6 +36,7 @@ namespace QuickDictionary.Web
             services.AddTransient<ISession, Session>();
             services.AddTransient<IDatabase, Database>();
             services.AddTransient<DictionaryService>();
+            services.AddTransient<LanguageService>();
 
             // Add framework services.
             services.AddMvc();

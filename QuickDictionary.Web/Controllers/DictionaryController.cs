@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QuickDictionary.Services;
 using QuickDictionary.Web.Models;
+using System;
 using System.Linq;
 
 namespace QuickDictionary.Web.Controllers
@@ -8,10 +9,14 @@ namespace QuickDictionary.Web.Controllers
     public class DictionaryController : Controller
     {
         private DictionaryService _dictionaryService;
+        LanguageService _languageService;
 
-        public DictionaryController(DictionaryService dictionaryService)
+        public DictionaryController(
+            DictionaryService dictionaryService,
+            LanguageService languageService)
         {
             _dictionaryService = dictionaryService;
+            _languageService = languageService;
         }
 
         public IActionResult Index()
@@ -20,7 +25,11 @@ namespace QuickDictionary.Web.Controllers
                 .GetAllDictionaries()
                 .Select(d => new DictionaryViewModel {
                     Id = d.Id,
-                    Name = d.Name
+                    Name = d.Name,
+                    Description = d.Description,
+                    CreatedAt = d.CreatedAt,
+                    SourceLanguage = _languageService.GetLanguageById(d.SourceLanguageId)?.Name ?? String.Empty,
+                    TargetLanguage = _languageService.GetLanguageById(d.TargetLanguageId)?.Name ?? String.Empty,
                 })
                 .ToList();
             return View(list);
