@@ -56,3 +56,15 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        $('table').dataTable({
+            "paging": false,
+            "oLanguage": {
+                "sInfo": "Количество записей: _TOTAL_"
+            }
+        });
+    </script>
+}
