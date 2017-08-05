@@ -20,7 +20,7 @@ namespace QuickDictionary.CQRS.Queries.Translations
                 .Query<SourcePhrase>(
                     "SELECT * " +
                     "FROM SourcePhrases " +
-                    "WHERE Id = @Id " +
+                    "WHERE DictionaryId = @Id " +
                     "ORDER BY CreatedAt DESC", new { Id = _id })
                 .ToList();
         }

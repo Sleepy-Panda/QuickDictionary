@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using QuickDictionary.Common.Entities;
 using QuickDictionary.Services;
 using QuickDictionary.Web.Models;
 using System;
@@ -15,10 +16,14 @@ namespace QuickDictionary.Web.Controllers
             _translationService = translationService;
         }
 
-        public IActionResult Index(int dictionaryId)
+        /// <summary>
+        /// Gets all translations for selected dictionary.
+        /// </summary>
+        /// <param name="id">Dictionary Id.</param>
+        public IActionResult Index(int id)
         {
             var translations = _translationService
-                .GetSourcePhrasesByDictionaryId(dictionaryId)
+                .GetSourcePhrasesByDictionaryId(id)
                 .Select(d => new TranslationViewModel
                 {
                     Id = d.Id,
@@ -34,6 +39,13 @@ namespace QuickDictionary.Web.Controllers
                 .ToList();
 
             return View(translations);
+        }
+
+        public IActionResult Create()
+        {
+            _translationService.CreateSourcePhrase(new SourcePhrase { DictionaryId = 1, Value = "nowadays", CreatedAt = DateTime.Now });
+
+            return null;
         }
     }
 }

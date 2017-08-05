@@ -4,4 +4,9 @@
     {
         void Execute(ISession session);
     }
+
+    public interface ICommand<T>
+    {
+        T Execute(ISession session);
+    }
 }

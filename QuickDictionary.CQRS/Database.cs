@@ -22,5 +22,12 @@ namespace QuickDictionary.CQRS
         {
             command.Execute(_session);
         }
+
+        public T Execute<T>(ICommand<T> command)
+        {
+            var result = command.Execute(_session);
+
+            return result;
+        }
     }
 }

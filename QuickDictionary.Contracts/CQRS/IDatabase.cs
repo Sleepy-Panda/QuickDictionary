@@ -5,5 +5,7 @@
         T Query<T>(IQuery<T> query);
 
         void Execute(ICommand command);
+
+        T Execute<T>(ICommand<T> command);
     }
 }

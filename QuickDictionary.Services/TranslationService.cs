@@ -1,5 +1,6 @@
 ﻿using QuickDictionary.Common.Entities;
 using QuickDictionary.Contracts.CQRS;
+using QuickDictionary.CQRS.Commands.Translations;
 using QuickDictionary.CQRS.Queries.Translations;
 using System.Collections.Generic;
 
@@ -22,6 +23,11 @@ namespace QuickDictionary.Services
         public IEnumerable<TranslatedPhrase> GetTranslatedPhrasesBySourcePhraseId(int id)
         {
             return _database.Query(new GetTranslatedPhrasesBySourcePhraseId(id));
+        }
+
+        public int CreateSourcePhrase(SourcePhrase sourcePhrase)
+        {
+            return _database.Execute(new CreateSourcePhrase(sourcePhrase));
         }
     }
 }

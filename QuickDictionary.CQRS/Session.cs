@@ -13,7 +13,7 @@ namespace QuickDictionary.CQRS
             _context = context;
         }
 
-        public virtual IEnumerable<T> Query<T>(string query, object parameters)
+        public IEnumerable<T> Query<T>(string query, object parameters)
         {
             return _context.Transaction(transaction =>
             {
@@ -26,6 +26,16 @@ namespace QuickDictionary.CQRS
         public void Execute(string sql, object parameters)
         {
             _context.Transaction(transaction => _context.Connection.Execute(sql, parameters, transaction));
+        }
+
+        public T ExecuteScalar<T>(string sql, object parameters)
+        {
+            return _context.Transaction(transaction =>
+            {
+                var result = _context.Connection.ExecuteScalar<T>(sql, parameters, transaction);
+
+                return result;
+            });
         }
     }
 }
