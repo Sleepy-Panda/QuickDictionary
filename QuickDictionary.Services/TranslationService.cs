@@ -29,5 +29,10 @@ namespace QuickDictionary.Services
         {
             return _database.Execute(new CreateSourcePhrase(sourcePhrase));
         }
+
+        public void CreateTranslatedPhrase(TranslatedPhrase translatedPhrase)
+        {
+            _database.Execute(new CreateTranslatedPhrase(translatedPhrase));
+        }
     }
 }

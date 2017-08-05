@@ -20,7 +20,8 @@ namespace QuickDictionary.CQRS.Commands.Translations
             return session.ExecuteScalar<int>(
                 "INSERT INTO SourcePhrases (DictionaryId, Value, CreatedAt) " +
                 "VALUES (@DictionaryId, @Value, @CreatedAt); " +
-                "SELECT CAST(SCOPE_IDENTITY() AS INT)", new { _sourcePhrase.DictionaryId, _sourcePhrase.Value, _sourcePhrase.CreatedAt });
+                "SELECT CAST(SCOPE_IDENTITY() AS INT)", 
+                new { _sourcePhrase.DictionaryId, _sourcePhrase.Value, _sourcePhrase.CreatedAt });
         }
     }
 }

@@ -43,7 +43,7 @@ namespace QuickDictionary.Web.Controllers
 
         public IActionResult Create()
         {
-            _translationService.CreateSourcePhrase(new SourcePhrase { DictionaryId = 1, Value = "nowadays", CreatedAt = DateTime.Now });
+            var sourcePhraseId = _translationService.CreateSourcePhrase(new SourcePhrase { DictionaryId = 1, Value = "nowadays", CreatedAt = DateTime.Now });
 
             return null;
         }
