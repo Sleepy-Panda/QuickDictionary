@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <Content Include="wwwroot\css\tables.css" />
+    <Content Include="wwwroot\js\add-remove-input.js" />
+    <Content Include="wwwroot\js\create-google-link.js" />
+    <Content Include="wwwroot\js\get-yandex-translations.js" />
     <Content Include="wwwroot\js\jquery.dataTables.min.js" />
   </ItemGroup>
   <ItemGroup>

@@ -19,9 +19,9 @@ namespace QuickDictionary.Services
             return _database.Query(new GetAllDictionaries());
         }
 
-        public void Save(Dictionary dictionary)
+        public Dictionary GetDictionaryById(int id)
         {
-            //_database.Execute(new CreateDictionary(dictionary));
+            return _database.Query(new GetDictionaryById(id));
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace QuickDictionary.Web.Models
 {
-    public class TranslationViewModel
+    public class TranslationIndexViewModel
     {
         public int Id { get; set; }
 
@@ -17,7 +17,7 @@ namespace QuickDictionary.Web.Models
 
         public IEnumerable<string> TranslatedValues { get; set; }
 
-        public TranslationViewModel()
+        public TranslationIndexViewModel()
         {
             TranslatedValues = new List<string>();
         }

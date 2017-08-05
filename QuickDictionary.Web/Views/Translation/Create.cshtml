@@ -1,0 +1,90 @@
+﻿@using QuickDictionary.Web.Models
+@model TranslationCreateViewModel
+
+@{
+    ViewData["Title"] = "Translations";
+}
+
+<div class="container blue-wrapper">
+    <form asp-action="Create" asp-controller="Translation" asp-anti-forgery="true">
+        <div class="header-wrapper">
+            <h1>
+                Add Translation
+            </h1>
+        </div>
+
+        <div class="validation" asp-validation-summary="ModelOnly" />
+
+        <div class="form-group">
+            <div class="accordeon">
+                <a class="collapsed" role="button" data-toggle="collapse" href="#dictionaryDetails">
+                    View dictionary details
+                </a>
+                <div class="collapse accordeon-content" id="dictionaryDetails">
+                    <div class="row clearfix">
+                        <div class="col-md-6">szkdm</div>
+                        <div class="col-md-6">sdfdf</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="input-label" asp-for="Value"></label>
+            <input class="form-input" type="text" asp-for="Value" />
+            <a href="" id="google-link" target="_blank">Check with Google Translate</a>
+            <span asp-validation-for="Value" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="header-wrapper">
+                    <h3>
+                        Put translations manually
+                    </h3>
+                </div>
+                <div id="translation-manually">
+                    <div class="form-group">
+                        <label class="input-label">
+                            Put translation
+                        </label>
+                        <div>
+                            <input class="form-input input-with-icon" name="translations" type="text" />
+                            <span class="glyphicon glyphicon-trash icon-for-input" title="Delete input field"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="blue-button" type="button" id="btn-add-field">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        Add input field
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="header-wrapper">
+                    <h3>
+                        Or select some of auto-generated items
+                    </h3>
+                </div>
+                <div class="form-group">
+                    <div id="translation-auto">
+                    </div>
+                    <div class="alert alert-info" id="no-translations-found" role="alert">
+                        No translations found.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        var languagePair = '@Model.SourceLanguageCode'.toLowerCase() + '-' + '@Model.TargetLanguageCode'.toLowerCase();
+    </script>
+
+    <script src="~/js/add-remove-input.js"></script>
+    <script src="~/js/create-google-link.js"></script>
+    <script src="~/js/get-yandex-translations.js"></script>
+}

@@ -4,7 +4,7 @@
     color: #575a5b;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 700;
 }
@@ -14,19 +14,116 @@ a {
     color: #5dceea;
 }
 
-a:hover {
+a:hover,
+a:focus,
+a:active {
     color: #53c4e0;
     text-decoration: none;
 }
 
 .header-wrapper {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .blue-wrapper {
     padding: 20px;
     background-color: #f0fafc;
     border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.input-label {
+    display: block;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.form-input {
+    margin: 0px;
+    padding: 0px 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+    border-radius: 3px;
+    transition: all ease 0.3s;
+}
+
+.form-input:focus {
+    border-color: #a4e6f5;
+    transition: all ease 0.3s;
+}
+
+.input-with-icon {
+    display: inline;
+    width: calc(100% - 21px);
+}
+
+.icon-for-input {
+    padding-left: 5px;
+    font-size: 11px;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.accordeon {
+    margin: 0px;
+    padding: 0 10px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 40px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+    border-radius: 3px;
+}
+
+.accordeon > a {
+    display: block;
+    position: relative;
+}
+
+.accordeon > a:after {
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    font-family: 'Glyphicons Halflings';
+    color: #575a5b;
+    opacity: 0.3;
+    content: "\e259";
+}
+
+.blue-button {
+	display: block;
+	min-width: 150px;
+	padding: 10px 20px;
+	font-size: 14px;	
+	line-height: 20px;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+	background-color: #a4e6f5;
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	transition: all ease 0.3s;
+}
+
+.blue-button:hover,
+.blue-button:active,
+.blue-button:focus {
+	background-color: #90E2F5;
+	transition: all ease 0.3s;
 }
 
 ::selection {
